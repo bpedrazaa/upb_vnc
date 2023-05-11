@@ -1,8 +1,8 @@
 import TIMER from './timer.js';
 import UI from './ui.js';
 
-var credentialsData= await fetch('api/credentials');
-credentialsData= await credentialsData.json();
+var credentialsData = await fetch('api/credentials');
+credentialsData = await credentialsData.json();
 
 const urlParams = new URLSearchParams(window.location.search);
 const bookingAccessKey = urlParams.get('access_key');
