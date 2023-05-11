@@ -1,7 +1,7 @@
 import TIMER from './timer.js';
 import UI from './ui.js';
 
-var credentialsData= await fetch('../utils/credentials.json');
+var credentialsData= await fetch('api/credentials');
 credentialsData= await credentialsData.json();
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -11,12 +11,12 @@ const bookingPwd = urlParams.get('pwd');
 const BOOKING_VALIDATION= {
   async validateReservation(pwd, accessKey){
     if (accessKey != null) {
-      var url =`${credentialsData.bookingUrl}api/reservation/?access_key=${accessKey}`;
+      var url =`${credentialsData.booking_url}api/reservation/?access_key=${accessKey}`;
       if (pwd != null) { 
         url = `${url}&pwd=${pwd}`;
         UI.accessPassword = credentialsData.password;
       } else {
-        UI.accessPassword = credentialsData.viewOnlyPassword;
+        UI.accessPassword = credentialsData.view_only_password;
       }
       const response_booking_api = await fetch(url, {
         method: 'GET',

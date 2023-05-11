@@ -5,9 +5,9 @@
 var alertTitle = document.getElementById("alert_title");
 var alertMessage = document.getElementById("alert_message");
 
-var credentialsData= await fetch('../util/credentials.json');
+var credentialsData= await fetch('api/credentials');
 credentialsData= await credentialsData.json();
-const bookingUrl = credentialsData.bookingUrl;
+const bookingUrl = credentialsData.booking_url;
 
 alertTitle.innerText = "Access denied to this laboratory"
 alertMessage.innerText = "Please book a session at: ";

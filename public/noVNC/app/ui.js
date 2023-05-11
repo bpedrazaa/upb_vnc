@@ -1013,9 +1013,9 @@ const UI = {
             return;
         }
 
+        // const port = UI.getSetting('port');
         const host = UI.getSetting('host');
         const port = 6080; 
-        // const port = UI.getSetting('port');
         const path = UI.getSetting('path');
 
         if (typeof password === 'undefined') {

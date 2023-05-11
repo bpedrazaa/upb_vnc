@@ -20,10 +20,10 @@ const TIMER = {
 
       // If the count down is over, write some text 
       if (distance < 0) {
+        UI.disconnect();
         UI.accessPassword = null;
         clearInterval(x);
         document.getElementById("timer").innerHTML = "TIME COMPLETED";
-        UI.disconnect();
         window.location.pathname = "../alert_page.html"
       }
     }, 1000);
