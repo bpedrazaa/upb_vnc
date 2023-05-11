@@ -1,4 +1,5 @@
-import * as UI from './ui.js'
+import UI from './ui.js' 
+
 const TIMER = {
   timer_function(end_date){
     // Update the count down every 1 second

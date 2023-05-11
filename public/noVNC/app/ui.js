@@ -1006,7 +1006,7 @@ const UI = {
     },
 
     connect(event, password) {
-        password = accessPassword; 
+        password = UI.accessPassword; 
 
         // Ignore when rfb already exists
         if (typeof UI.rfb !== 'undefined') {

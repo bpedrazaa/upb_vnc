@@ -1,5 +1,5 @@
-import * as TIMER from './timer.js';
-import * as UI from './UI.js';
+import TIMER from './timer.js';
+import UI from './ui.js';
 
 var credentialsData= await fetch('../utils/credentials.json');
 credentialsData= await credentialsData.json();
@@ -38,3 +38,5 @@ const BOOKING_VALIDATION= {
 }
 
 BOOKING_VALIDATION.validateReservation(bookingPwd, bookingAccessKey);
+
+export default BOOKING_VALIDATION;
