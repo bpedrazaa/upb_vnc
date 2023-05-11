@@ -1,10 +1,4 @@
 /*
- Copyright (c) Universidad Privada Boliviana (UPB) - EUBBC-Digital
- MIT License - See LICENSE file in the root directory
- Boris Pedraza, Alex Villazon
-*/
-
-/*
  * noVNC: HTML5 VNC client
  * Copyright (C) 2019 The noVNC Authors
  * Licensed under MPL 2.0 (see LICENSE.txt)

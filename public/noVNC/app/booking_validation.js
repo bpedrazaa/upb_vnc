@@ -1,3 +1,9 @@
+/*
+ Copyright (c) Universidad Privada Boliviana (UPB) - EUBBC-Digital
+ MIT License - See LICENSE file in the root directory
+ Boris Pedraza, Alex Villazon
+*/
+
 import TIMER from './timer.js';
 import UI from './ui.js';
 
