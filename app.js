@@ -3,7 +3,7 @@ const app = express();
 require('dotenv').config();
 
 // Serve static files from the public directory
-app.use(express.static('public/noVNC/', {
+app.use(express.static('public/', {
   defaultFiles: ['vnc.html'],
 }));
 
