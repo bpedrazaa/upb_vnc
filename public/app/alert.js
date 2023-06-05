@@ -7,8 +7,15 @@
 var alertTitle = document.getElementById("alert_title");
 var alertMessage = document.getElementById("alert_message");
 
-var credentialsData = await fetch('api/credentials');
-credentialsData = await credentialsData.json();
+try {
+  var credentialsData = await fetch('api/credentials');
+  if (!credentialsData.ok) {
+    throw new Error('Error fetching credentials');
+  }
+  credentialsData = await credentialsData.json();
+} catch (error) {
+  console.error('Error:', error);
+}
 const bookingUrl = credentialsData.bookingUrl;
 
 alertTitle.innerText = "Access denied to this laboratory"

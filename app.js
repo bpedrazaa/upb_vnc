@@ -50,21 +50,29 @@ app.post('/api/bookingValidation', async (req, res) => {
     } else {
       public = true;
     }
-    const response_booking_api = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-    const data = await response_booking_api.json();
-    if (data.length){
-      response = {
-        public: public,
-        endDate: data[0].end_date
+    try {
+      var response_booking_api= await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+      if (!response_booking_api.ok) {
+        throw new Error('Error fetching data');
       }
+
+      response_booking_api = await response_booking_api.json();
+      if (response_booking_api.length){
+        response = {
+          public: public,
+          endDate: response_booking_api[0].end_date
+        }
+      }
+      res.json(response);
+    } catch (error) {
+      console.error('Error:', error);
     }
   }
-  res.json(response);
 });
 
 // Start the server
