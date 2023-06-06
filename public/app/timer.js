@@ -26,11 +26,17 @@ const TIMER = {
 
       // If the count down is over, write some text 
       if (distance < 0) {
-        UI.disconnect();
+        var encodedMessage = encodeURIComponent("Run out of Time. Access denied");
+        var redirectURL = "../alert_page.html?message=" + encodedMessage + "&alert=1";
         UI.accessPassword = null;
-        clearInterval(x);
         document.getElementById("timer").innerHTML = "TIME COMPLETED";
-        window.location.pathname = "../alert_page.html"
+        clearInterval(x);
+        try {
+          UI.disconnect();
+          window.location.href = redirectURL;
+        } catch {
+          window.location.href = redirectURL;
+        }
       }
     }, 1000);
   }

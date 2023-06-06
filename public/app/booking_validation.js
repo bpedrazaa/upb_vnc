@@ -14,7 +14,9 @@ try {
   }
   credentialsData = await credentialsData.json();
 } catch (error) {
-  window.location.pathname = "../alert_page.html"
+  var encodedMessage = encodeURIComponent("Error fetching the credentials");
+  var redirectURL = "../alert_page.html?message=" + encodedMessage;
+  window.location.href = redirectURL;
 }
 
 async function validateReservation(){
@@ -44,10 +46,14 @@ async function validateReservation(){
       TIMER.timer_function(end_date);
     } else {
       UI.accessPassword = null;
-      window.location.pathname = "../alert_page.html"
+      var encodedMessage = encodeURIComponent("Error validating the booking reservation");
+      var redirectURL = "../alert_page.html?message=" + encodedMessage + "&alert=1";
+      window.location.href = redirectURL;
     }
   } catch (error) {
-      window.location.pathname = "../alert_page.html"
+    var encodedMessage = encodeURIComponent("Error retrieving the booking data");
+    var redirectURL = "../alert_page.html?message=" + encodedMessage;
+    window.location.href = redirectURL;
   }
 }
 
