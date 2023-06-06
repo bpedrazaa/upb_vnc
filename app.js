@@ -1,14 +1,12 @@
 const express = require('express'),
   app = express(),
-  port = parseInt(process.env.PORT,10) || 3000;
+  port = 3000;
 
 const fetch = require("node-fetch");
 require('dotenv').config();
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
-
-// Serve static files from the public directory
 app.use(express.static('public/', {
   defaultFiles: ['vnc.html'],
 }));
@@ -24,7 +22,6 @@ function validateReferer(req, res, next){
   }
 }
 
-// Proxy route to forward the API request
 app.get('/api/credentials', validateReferer, (req, res) => {
   const response = {
     password: process.env.PASSWORD,
@@ -75,7 +72,6 @@ app.post('/api/bookingValidation', async (req, res) => {
   }
 });
 
-// Start the server
 app.listen(port, () => {
   console.log('Server is running on port localhost:3000');
 });
